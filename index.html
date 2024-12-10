@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>😂 Laughing Hazard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div>
+      <h1>Laughing Hazard!</h1><br>
+    </div>
+    <!-- Set The Stage Container -->
+    <div id="set-stage-container" class="button-container">
+      <button id="set-stage-btn">Set The Stage</button>
+      <div id="set-stage-cards" class="cards-display"></div>
+    </div>
+
+    <!-- Draw Cards Container -->
+    <div id="draw-cards-container" class="button-container">
+      <draw-cards-button id="draw-cards-btn">Draw Cards</draw-cards-button>
+      <div id="draw-cards" class="cards-display"></div>
+    </div>
+  </div>
+
+  <a id="game-rules-link" href="#">Game Rules</a>
+
+  <!-- Fullscreen Card Display -->
+  <div id="fullscreen-card" class="fullscreen-hidden"></div>
+
+  <!-- Fullscreen PDF Display -->
+  <div id="fullscreen-pdf" class="fullscreen-hidden">
+    <div class="pdf-container">
+      <embed id="pdf-embed" type="application/pdf" width="100%" height="100%"></embed>
+      <!-- Add a "Back to Game" button below the PDF -->
+      <button id="back-to-game-btn" class="back-to-game-btn">Back to Game</button>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
