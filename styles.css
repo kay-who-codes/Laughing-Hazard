@@ -58,7 +58,6 @@ draw-cards-button {
   margin: 40px;
 }
 
-
 button:hover {
   background-color: grey;
 }
@@ -72,6 +71,7 @@ button:hover {
   gap: 20px;
   flex-wrap: wrap;
   overflow-x: auto;
+  perspective: 1000px; /* Adds a 3D effect for the flip */  
 }
 
 .cards-display img {
@@ -79,6 +79,7 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 40px;
+  transform-style: preserve-3d; /* Enable 3D perspective for flipping */
 }
 
 /* Set The Stage Cards */
@@ -93,7 +94,7 @@ button:hover {
 
 @media (max-width: 768px) {
   #draw-cards img {
-    max-width: 48%; /* Two cards fit side-by-side on mobile */
+    max-width: 44%; /* Two cards fit side-by-side on mobile */
   }
 }
 
@@ -185,4 +186,15 @@ button:hover {
 /* Fullscreen hidden class */
 .fullscreen-hidden {
   display: none !important;  /* Ensure it's fully hidden */
+}
+
+/* Card Swap Animations */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.25s ease;
 }
