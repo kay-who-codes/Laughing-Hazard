@@ -23,12 +23,43 @@ function getRandomCard() {
 // Set The Stage: Display two cards
 setStageBtn.addEventListener("click", () => {
   setStageCardsContainer.innerHTML = ""; // Clear previous cards
-  for (let i = 0; i < 2; i++) {
-    const card = document.createElement("img");
-    card.src = getRandomCard();
-    setStageCardsContainer.appendChild(card);
-  }
+
+  const card1 = document.createElement("img");
+  card1.src = getRandomCard();
+  const card2 = document.createElement("img");
+  card2.src = getRandomCard();
+
+  // Add classes for animation
+  card1.classList.add("card");
+  card2.classList.add("card");
+
+  // Set up click event listeners to swap the cards
+  [card1, card2].forEach(card => {
+    card.addEventListener("click", () => swapCards(card1, card2));
+  });
+
+  // Append the cards to the container
+  setStageCardsContainer.appendChild(card1);
+  setStageCardsContainer.appendChild(card2);
 });
+
+function swapCards(card1, card2) {
+  // Add fade-out classes to both cards
+  card1.classList.add("fade-out");
+  card2.classList.add("fade-out");
+
+  // Swap the images halfway through the fade animation
+  setTimeout(() => {
+    const tempSrc = card1.src;
+    card1.src = card2.src;
+    card2.src = tempSrc;
+
+    // Add fade-in classes to both cards
+    card1.classList.add("fade-in");
+    card2.classList.add("fade-in");
+  }, 250); // Halfway through the fade-out animation
+}
+
 
 // Draw Cards: Display seven cards
 drawCardsBtn.addEventListener("click", () => {
