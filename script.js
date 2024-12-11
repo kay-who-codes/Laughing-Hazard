@@ -1,5 +1,5 @@
 const cardsPath = "./Individual Cards"; // Path to the cards folder
-const totalCards = 276; // Total number of individual cards (69 x 4 grids)
+const totalCards = 350; // Updated total number of cards
 
 // DOM Elements
 const setStageBtn = document.getElementById("set-stage-btn");
@@ -17,7 +17,9 @@ const backToGameBtn = document.getElementById("back-to-game-btn");
 // Utility: Get a random card
 function getRandomCard() {
   const randomIndex = Math.floor(Math.random() * totalCards) + 1;
-  return `${cardsPath}/grid${Math.ceil(randomIndex / 69)}_card_${randomIndex % 69 || 69}.png`;
+  // Pad the index with leading zeros to match the new naming convention (e.g., 001.png)
+  const paddedIndex = String(randomIndex).padStart(3, "0");
+  return `${cardsPath}/${paddedIndex}.png`;
 }
 
 // Set The Stage: Display two cards
@@ -59,7 +61,6 @@ function swapCards(card1, card2) {
     card2.classList.add("fade-in");
   }, 250); // Halfway through the fade-out animation
 }
-
 
 // Draw Cards: Display seven cards
 drawCardsBtn.addEventListener("click", () => {
