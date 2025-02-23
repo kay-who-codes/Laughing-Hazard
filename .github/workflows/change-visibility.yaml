@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Change repository visibility to public
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.Kay_PAT }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
         run: |
           curl -L -X PATCH https://api.github.com/repos/$OWNER/$REPO \
-          -H "Authorization: token $GH_PAT" \
+          -H "Authorization: token $Kay_PAT" \
           -H "Accept: application/vnd.github.v3+json" \
           -d '{"private": false}'
