@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Change repository visibility to public
         env:
-          GH_PAT: ${{ secrets.Kay_PAT }}
+          Kay_PAT: ${{ secrets.Kay_PAT }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
         run: |
